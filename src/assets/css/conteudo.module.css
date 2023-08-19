@@ -1,0 +1,163 @@
+.container_conteudos {
+  width: 100%;
+  margin-top: 30px;
+  height: auto;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.flex_conteudos {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 5%;
+}
+
+
+#titulo_principal {
+  font-weight: 500;
+  color: #364753;
+  margin-bottom: 90px;
+  font-size: 6rem;
+}
+
+
+.conteudo {
+  margin: 50px 0px 50px 0px;
+  position: relative;
+  display: flex;
+  width: 90%;
+  border-radius: 7px;
+  background-color: #ffffff;
+}
+
+.conteudo img {
+  filter: brightness(60%);
+  width: 500px;
+  border-radius: 10px 0 0 10px;
+}
+
+.titulo_post {
+  width: 100%;
+  padding: 1%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.infor_post{
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.titulo_post h2 {
+  font-weight: 500;
+  color: #364753;
+  max-width: 50%;
+  width: 400px;
+  margin: 0;
+  font-size: 3.8rem;
+}
+
+#data_post{
+  font-size: 1.5rem;
+  color: #9e9e9e;
+  margin-left: auto;
+}
+
+#nome_autor{
+  font-weight: bold;
+  margin-left: 2px;
+  color: #9e9e9e;
+  font-size: 1.5rem;
+}
+
+#descricao_post {
+  overflow: hidden;
+  font-family: "open sans";
+  font-weight: 300;
+  color: #364753;
+  font-size: 1.7rem;
+}
+
+.titulo_post > button {
+  font-weight: 400;
+  cursor: pointer;
+  font-family: "open sans";
+  border: none;
+  margin-left: auto;
+  align-self: flex-end;
+  background-color: transparent;
+  color: #364753;
+  font-size: 2.8rem;
+  transition: all 0.5s;
+}
+
+.titulo_post > button:hover {
+  transition: all 0.5s;
+  color: #7793a8;
+}
+
+#loading,#dadosVazios{
+  color: #7793a8;
+  font-size: 3rem;
+}
+
+.container_conteudos > form{
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#search{
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  height: 60px;
+  font-size: 1.9rem;
+  max-width: 90%;
+  width: 550px;
+  border: none;
+  outline: none;
+}
+
+#submitForm{
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #7793a8;
+  margin-left: 20px;
+  width: 120px;
+  border: none;
+  transition: all 150ms;
+}
+
+#submitForm:hover{
+  transition: all 150ms;
+  color:#fff;
+  
+  background-color: #7793a898;
+}
+
+@media (max-width:1000px){
+
+  .conteudo img{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+
+  .conteudo{
+    flex-direction: column;
+  }
+}
+
+
+
+
