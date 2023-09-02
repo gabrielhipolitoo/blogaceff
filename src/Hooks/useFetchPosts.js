@@ -8,10 +8,12 @@ export const useFetchPosts = () => {
   const [notFound,setNotFound] = useState(false)
   const [cancelled, setCancelled] = useState(false); // memory leak
 
-  const url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
-  const urlSearch = `https://strapi-production-36c0.up.railway.app/api/posts?_q=${search}&populate=*`
-  const authToken =
-    "904f674dc5e3d2c9a3c62a09f30447eea5b6afe6c32e69ab91066529d93a6fcb3ba96d94142d59a7c59985284362769aa5f9ceea52e9c2476b5024d7386a2d3bcb9b824d8357e027512d52099244d2481cead7154e79cc7d327e367b014708aeffe683d43a4ae0b2be2473d1b40fcdbf9d97f4452ea4cfdce5f8e5895aab6515"
+  // const url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
+  const url = process.env.REACT_APP_URL
+  const endpoint= `/api/posts?_q=${search}&populate=*`
+  const urlSearch = process.env.REACT_APP_URL_SEARCH+endpoint
+
+  const authToken = process.env.REACT_APP_TOKEN
 
   const [config,setconfig] = useState(
     url, {

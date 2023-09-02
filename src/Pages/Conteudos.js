@@ -19,12 +19,12 @@ const Conteudos = () => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-      if(value)
-      setSearch(value)
+      e.preventDefault()
       requisicao('search')
-      navigate("/search?q=" + value);
-      setValue("")
+      if(value){
+        setValue(value)
+        navigate("/search?q=" + search)
+      }
   }
 
 
@@ -43,13 +43,13 @@ const Conteudos = () => {
 
 
 
-  // fim funções 🔚
+  // fim funções 
   return (
     <>
       <Header />
 
       <article className={style.container_conteudos}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             onChange={(e) => setValue(e.target.value)}
             type="search"
@@ -57,7 +57,7 @@ const Conteudos = () => {
             id={style.search}
             placeholder="Pesquise..."
           />
-          <button  id={style.submitForm} type="submit">
+          <button onClick={handleSubmit}  id={style.submitForm} type="submit">
           <FontAwesomeIcon fontSize="3rem" icon={faMagnifyingGlass} />
           </button>
         </form>
