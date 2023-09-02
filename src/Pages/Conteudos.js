@@ -7,13 +7,12 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Conteudos = () => {
-  const { documents, loading, notFound, setSearch, search,setDispatch,dispatch,fetchDocuments } = useFetchPosts(); //json da api
+  const { documents, loading, notFound, setSearch, search,requisicao} = useFetchPosts(); //json da api
   const posts = documents.data; // buscando dados apatir do json data
   const [value,setValue] = useState()
   const reversedPosts = posts?.slice().reverse(); //invertendo json
 
   const navigate = useNavigate();
-
   // funções ⬇⬇
   function handlePost(slug) {
     navigate("/post/" + slug);
@@ -21,24 +20,28 @@ const Conteudos = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (value) {
+      if(value)
       setSearch(value)
-      return navigate("/search?q=" + search);
-    }
+      requisicao('search')
+      navigate("/search?q=" + value);
+      setValue("")
   }
+
 
   const formataData = (data, locale = "en-GB") => {
     return new Date(data).toLocaleDateString(locale);
   };
 
-
-
   useEffect(() => {
-    if(!value) 
-    fetchDocuments()
-      return navigate("/");
+    if(!value)
+      requisicao('inicio')
+      navigate("/");
 
-  }, [search,value,dispatch]);
+  },[value])
+
+
+
+
 
   // fim funções 🔚
   return (
@@ -54,7 +57,7 @@ const Conteudos = () => {
             id={style.search}
             placeholder="Pesquise..."
           />
-          <button id={style.submitForm} type="submit">
+          <button  id={style.submitForm} type="submit">
           <FontAwesomeIcon fontSize="3rem" icon={faMagnifyingGlass} />
           </button>
         </form>

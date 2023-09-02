@@ -5,10 +5,10 @@ export const useFetchPost = (slug) => {
   const [cancelled, setCancelled] = useState(false);
 
   const endpoint = slug
-  const url = "http://192.168.100.79:1337/api/posts/"+endpoint
+  const url = "http://localhost:1337/api/posts/"+endpoint
 
   const authToken =
-    "661b6593d83bf765b5ebedf9ce92b4a120ac11301b6612547607c216c361cf806027e3d484ec6c31b9c4232a05a601991538181560692434c9892404c97ce894c7d595a37c18083f706a410c19768ab91d7a26cfec195941becedd929fbddec19525d7c22a6c8d097119c2ce63a2d27670552eaecea4c5de62684f62d81511c7";
+    "d0f8a42a6bb7a5e2dcd06c5ccf2f1b2dc7331d3de7cd40c6310a0d004c4aecbc7277805a450c5c987eb6b89e99445cc9053961ba8cd108a56084d8d72e1a47b12c814053ba4e2f5c520b5c691d6a22495dc5cfcc5e2d23f9b060937d9113e224dd70abdf542abf328ef72a8ac1ae3c29cdd501bc2d3a68db253e51e6323760bf";
 
   useEffect(() => {
     async function fetchDocuments() {

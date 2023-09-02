@@ -53,7 +53,7 @@ const Nav = () => {
   const arrayLinks = [
     {
       href:"",
-      texto:"Home"
+      texto:"Inicio"
     },
     {
       href:"",

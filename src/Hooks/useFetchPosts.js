@@ -8,61 +8,90 @@ export const useFetchPosts = () => {
   const [notFound,setNotFound] = useState(false)
   const [cancelled, setCancelled] = useState(false); // memory leak
 
-  let url = "http://192.168.100.79:1337/api/posts?populate=*"
-
+  const url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
+  const urlSearch = `https://strapi-production-36c0.up.railway.app/api/posts?_q=${search}&populate=*`
   const authToken =
-    "661b6593d83bf765b5ebedf9ce92b4a120ac11301b6612547607c216c361cf806027e3d484ec6c31b9c4232a05a601991538181560692434c9892404c97ce894c7d595a37c18083f706a410c19768ab91d7a26cfec195941becedd929fbddec19525d7c22a6c8d097119c2ce63a2d27670552eaecea4c5de62684f62d81511c7";
+    "904f674dc5e3d2c9a3c62a09f30447eea5b6afe6c32e69ab91066529d93a6fcb3ba96d94142d59a7c59985284362769aa5f9ceea52e9c2476b5024d7386a2d3bcb9b824d8357e027512d52099244d2481cead7154e79cc7d327e367b014708aeffe683d43a4ae0b2be2473d1b40fcdbf9d97f4452ea4cfdce5f8e5895aab6515"
 
-    useEffect(() => {
-      if(search){
-       url = `http://192.168.100.79:1337/api/posts?_q=${search}&populate=*`
-      }
+  const [config,setconfig] = useState(
+    url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${authToken}`,
+      },
+    }
+  )
 
-      else{
-        url = "http://192.168.100.79:1337/api/posts?populate=*"
-       
-      }
-    },[search,documents])
+;
 
-    async function fetchDocuments() {
+    // useEffect(() => {
+    //   if(search){
+    //    url = `https://strapi-production-36c0.up.railway.app/api/posts?_q=${search}&populate=*`
+    //   }
 
+    //   else{
+    //     url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
+    //   }
+    // },[search,documents])
 
-      setloading(true)
-      try {
-        const response = await fetch(url, {
+    const requisicao = (tipo) => {
+      if(tipo==="search"){
+        setconfig(urlSearch, {
           method: "GET",
           headers: {
             authorization: `Bearer ${authToken}`,
           },
-        });
-        setloading(false)
-        const data = await response.json();
-        console.log(data)
-        if(data.data.length >=1 ){
-          setDocuments(data);
-          console.log('teste')
-          setNotFound(false)
-          console.log(data.data.length)
-        }
-
-        else{
-          setDocuments("")
-          setNotFound(true)
-        }
-      } catch (error) {
-        setloading(false)
-        console.log(error.massage);
-        setNotFound(true)
+        })
       }
-
+      else if(tipo="inicio"){
+        setconfig(url, {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${authToken}`,
+          },
+        })
+      }
+  
     }
 
+
+    useEffect(() => {
+      async function fetchDocuments() {
+        setloading(true)
+        try {
+          const response = await fetch(config);
+          setloading(false)
+          const data = await response.json();
+          console.log(response.url)
+          if(data.data.length >=1 ){
+            setDocuments(data);
+            setNotFound(false)
+          }
+  
+          else{
+            setDocuments("")
+            setNotFound(true)
+          }
+        } catch (error) {
+          setloading(false)
+          console.log(error.massage);
+          setNotFound(true)
+        }
+  
+      }
+
+      fetchDocuments()
+    },[search,config])
+    
+
+
+    
+
   useEffect(() => {
-    fetchDocuments()
     return () => setCancelled(true);
   }, [search]);
 
-  return { documents,loading,notFound,setSearch,search,setDispatch,dispatch,
-    fetchDocuments
+  return { documents,loading,notFound,setSearch,search,setDispatch,dispatch,requisicao
+    
   };
 };
