@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 export const useFetchPosts = () => {
-  const [documents, setDocuments] = useState([]); //documentos do post
-  const [loading,setloading] = useState(true) //estado de loading na pagina
+  const [documents, setDocuments] = useState([])
+  const [loading,setloading] = useState(true)
   const [search,setSearch] = useState("")
   const [dispatch,setDispatch] = useState(true)
   const [notFound,setNotFound] = useState(false)
-  const [cancelled, setCancelled] = useState(false); // memory leak
+  const [cancelled, setCancelled] = useState(false); 
 
-  // const url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
-  const urlSearch = process.env.REACT_APP_URL_SEARCH+`/api/posts?_q=${search}&populate=*`
   const url = process.env.REACT_APP_URL+"/api/posts?populate=*"
+  const urlSearch = process.env.REACT_APP_URL+`/api/posts?_q=${search}&populate=*`
   const authToken = process.env.REACT_APP_TOKEN
 
   const [config,setconfig] = useState(
@@ -24,15 +23,6 @@ export const useFetchPosts = () => {
 
 ;
 
-    // useEffect(() => {
-    //   if(search){
-    //    url = `https://strapi-production-36c0.up.railway.app/api/posts?_q=${search}&populate=*`
-    //   }
-
-    //   else{
-    //     url = "https://strapi-production-36c0.up.railway.app/api/posts?populate=*"
-    //   }
-    // },[search,documents])
 
     const requisicao = (tipo) => {
       if(tipo==="search"){
@@ -43,6 +33,7 @@ export const useFetchPosts = () => {
           },
         })
       }
+      
       else if(tipo="inicio"){
         setconfig(url, {
           method: "GET",
