@@ -67,7 +67,6 @@ const Conteudos = () => {
               <div className={style.conteudo}>
                 <img
                   src={
-                    "http://localhost:1337" +
                     post.attributes.capa_do_post.data?.attributes?.url
                   }
                   alt="imagem"
