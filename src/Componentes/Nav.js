@@ -17,7 +17,7 @@ const Nav = () => {
   const [path,setPath] = useState()
   const [background,setbackground] = useState()
   const [menuActive,setMenuActive] = useState(false)
-  const [colorIcon,setColorIcon] =  useState("#fff")
+  const [color,setColor] =  useState()
   const links_scroll = document.querySelectorAll(`.links ul li a `)
 
 
@@ -34,18 +34,17 @@ const Nav = () => {
         backgroundColor:"#fff",
         boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)"
       })
-      setColorIcon("#364753")
+      setColor({
+        color:"#364753", 
+      }) 
 
-      links_scroll.forEach(link => {
-        link.classList.add("links_scroll");
-      });
+      
     }
     else{
-      setColorIcon("#fff")
+      setColor({
+        color:"#fff", 
+      }) 
       setbackground({})
-      links_scroll.forEach(link => {
-        link.classList.remove("links_scroll");
-      });
     }
   }
 
@@ -85,7 +84,6 @@ const Nav = () => {
       texto:"Contato"
     }
   ]
-
 
   useEffect(() => {
     const baseStyle = () => {
@@ -129,7 +127,7 @@ const Nav = () => {
 
       <img src={logo} alt="logo da pagina" />
       <button onClick={menuMobile}  id="btnMobile" >
-      <FontAwesomeIcon fontSize="3rem" color={colorIcon}  icon={faBars} />
+      <FontAwesomeIcon fontSize="3rem" color="#364753"  icon={faBars} />
       </button>
       <div className="links">
         <button onClick={menuMobile} id="fecharMobile">
@@ -138,7 +136,7 @@ const Nav = () => {
         <ul>
           {arrayLinks.map(({texto,href}) =>(
             <li key={texto}>
-              <a href="">{texto}</a>
+              <a style={color} href="">{texto}</a>
             </li>
           ))}
         </ul>

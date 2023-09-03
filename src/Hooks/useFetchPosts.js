@@ -10,8 +10,7 @@ export const useFetchPosts = () => {
 
   const url = process.env.REACT_APP_URL+"/api/posts?populate=*"
   const urlSearch = process.env.REACT_APP_URL+`/api/posts?_q=${search}&populate=*`
-  const authToken = process.env.REACT_APP_TOKEN
-
+  const authToken = process.env.REACT_APP_AUTH_TOKEN
   const [config,setconfig] = useState(
     url, {
       method: "GET",
@@ -23,7 +22,6 @@ export const useFetchPosts = () => {
 
 ;
 
-
     const requisicao = (tipo) => {
       if(tipo==="search"){
         setconfig(urlSearch, {
@@ -33,8 +31,8 @@ export const useFetchPosts = () => {
           },
         })
       }
-      
-      else if(tipo="inicio"){
+
+      else{
         setconfig(url, {
           method: "GET",
           headers: {
@@ -42,18 +40,17 @@ export const useFetchPosts = () => {
           },
         })
       }
-  
     }
 
 
     useEffect(() => {
+      setDocuments("")
       async function fetchDocuments() {
         setloading(true)
         try {
           const response = await fetch(config);
           setloading(false)
           const data = await response.json();
-          console.log(response.url)
           if(data.data.length >=1 ){
             setDocuments(data);
             setNotFound(false)
@@ -72,10 +69,7 @@ export const useFetchPosts = () => {
       }
 
       fetchDocuments()
-    },[search,config])
-    
-
-
+    },[config])
     
 
   useEffect(() => {

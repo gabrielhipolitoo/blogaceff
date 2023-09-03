@@ -18,27 +18,24 @@ const Conteudos = () => {
     navigate("/post/" + slug);
   }
 
+
   const handleSubmit = (e) => {
       e.preventDefault()
       requisicao('search')
-      if(value){
-        setValue(value)
-        navigate("/search?q=" + search)
-      }
+      navigate("/search?q=" + search)
   }
 
+
+  useEffect(() => {
+    if(!search){
+      navigate('/')
+      requisicao('inicio')
+    }
+  },[search])
 
   const formataData = (data, locale = "en-GB") => {
     return new Date(data).toLocaleDateString(locale);
   };
-
-  useEffect(() => {
-    if(!value)
-      requisicao('inicio')
-      navigate("/");
-
-  },[value])
-
 
 
 
@@ -51,7 +48,7 @@ const Conteudos = () => {
       <article className={style.container_conteudos}>
         <form>
           <input
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
             type="search"
             name=""
             id={style.search}
