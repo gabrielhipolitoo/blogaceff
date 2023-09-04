@@ -131,7 +131,7 @@ const Nav = () => {
         <ul>
           {arrayLinks.map(({texto,href}) =>(
             <li key={texto}>
-              <a style={color} href="">{texto}</a>
+              <a style={color} href={href}>{texto}</a>
             </li>
           ))}
         </ul>
