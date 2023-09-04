@@ -49,36 +49,36 @@ const Nav = () => {
 
   const arrayLinks = [
     {
-      href:"",
+      href:"https://aceffong.com.br/",
       texto:"Inicio"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/sobre/",
       texto:"Sobre"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/galeria/",
       texto:"Galeria"
     },
 
     {
-      href:"",
+      href:"https://aceffong.com.br/projetos/",
       texto:"Projetos"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/empresas-parceiras/",
       texto:"Empresas Parceiras"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/certificados/",
       texto:"Certficados"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/doe/",
       texto:"Doe"
     },
     {
-      href:"",
+      href:"https://aceffong.com.br/contato/",
       texto:"Contato"
     }
   ]
