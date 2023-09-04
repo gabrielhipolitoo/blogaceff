@@ -1,9 +1,8 @@
 import React from 'react'
-import style from '../assets/css/header.module.css'
-import Nav from './Nav'
+import '../assets/css/header.css'
 const Header = () => {
   return (
-    <header className={style.header}>
+    <header className={"header"}>
         <h1>BLOG ACEFF</h1>
         <p>Fique por dentro de todas nossas atividades e eventos.</p>
     </header>

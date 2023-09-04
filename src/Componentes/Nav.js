@@ -25,7 +25,6 @@ const Nav = () => {
     setMenuActive(!menuActive)
   }
 
-
   const handleScroll = () => {
 
     if(window.scrollY >=40){
@@ -47,7 +46,6 @@ const Nav = () => {
       setbackground({})
     }
   }
-
 
   const arrayLinks = [
     {
@@ -90,10 +88,7 @@ const Nav = () => {
       if(path === "/"){
         setbackground({})
        window.addEventListener(("scroll"),handleScroll)
-
-       links_scroll.forEach(link => {
-        link.classList.remove("links_scroll");
-      });
+       setColor({}) 
       }
   
       else{
@@ -101,9 +96,10 @@ const Nav = () => {
           backgroundColor:"#fff",
           boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)"
         })
-        links_scroll.forEach(link => {
-          link.classList.add("links_scroll");
-        });
+        setColor({
+          color:"#364753", 
+        }) 
+  
       }
     }
     baseStyle()
@@ -113,7 +109,6 @@ const Nav = () => {
 
     }
   },[path])
-
 
   useEffect(()=> {
     setPath(location.pathname)

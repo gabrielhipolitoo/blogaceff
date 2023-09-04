@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams,useNavigate} from "react-router-dom";
-import style from "../assets/css/post.module.css";
+import  "../assets/css/post.css";
 
 //markdom
 import rehypeRaw from "rehype-raw";
@@ -25,26 +25,25 @@ const Post = () => {
  
 
   return (
-    <article className={style.post}>
+    <article className={"post"}>
       
       <button onClick={() => {
         navigate('/')
 
-      }} id={style.voltarPagina}> ⬅ Voltar pagina</button>
+      }} id={"voltarPagina"}> ⬅ Voltar pagina</button>
       {posts && 
         <>
-          <header className={style.header_post}>
+          <header className={"header_post"}>
             <h1>{posts['titulo']}</h1>
-            <div className={style.data_autor}>
+            <div className={"data_autor"}>
               <p>{formataData(posts['data_post'])} - </p>
               <p>Publicado por {posts['autor_post']}</p>
             </div>
           </header>
-          <ReactMarkdown className={style.conteudo_post} rehypePlugins={[rehypeRaw]}>
+          <ReactMarkdown className={"conteudo_post"} rehypePlugins={[rehypeRaw]}>
             {DOMPurify.sanitize(posts['conteudo'])}
           </ReactMarkdown>
           </>
-        
       }
     </article>
   );
