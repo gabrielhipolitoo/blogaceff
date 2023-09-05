@@ -71,10 +71,13 @@ const Conteudos = () => {
 
                   <div className={"infor_post"}>
                     <h2>{post.attributes.titulo}</h2>
+                    <div className="data">
                     <p id={"data_post"}>
                       {formataData(post.attributes.data_post)} -
                     </p>
                     <p id={"nome_autor"}>Postador por {post.attributes.autor_post}</p>
+                    </div>
+                    
                   </div>
 
                   <p id={"descricao_post"}>{post.attributes.descricao}</p>

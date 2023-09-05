@@ -29,7 +29,7 @@
   text-decoration: none;
   font-weight: 500;
   color: aliceblue;
-  font-size: 18px;
+  font-size: 1.8rem;
   margin: 0 0px 0px 20px;
 }
 
@@ -63,6 +63,7 @@
     visibility: hidden;
     box-sizing: border-box;
     position: fixed;
+    display: flex;
     border-radius: 0;
     transform: translateX(100%);
     left: 0;
@@ -76,7 +77,6 @@
   }
 
   .links ul {
-    width: 100%;
     display: none;
     justify-content: center;
     align-items: center;
@@ -113,10 +113,11 @@
     background-color: #d8d8d8;
     margin-left: auto;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row-reverse;
   }
 
   #nav_.active .links > ul {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,37 +125,36 @@
 
   #nav_.active .links ul li a {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   #fecharMobile {
     margin-top: 15px;
-    margin-left: auto;
     align-self: flex-start;
   }
 }
 
 @media (max-width:650px) {
   #nav_.active .links ul li a {
-    font-size: 3rem;
+    font-size: 2.6rem;
   }
 }
 
 @media (max-width:550px) {
   #nav_.active .links ul li a {
-    font-size: 3.2rem;
+    font-size: 2.7rem;
   }
 }
 
 @media (max-width:450px) {
   #nav_.active .links ul li a {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 }
 
 @media (max-width:350px) {
   #nav_.active .links ul li a {
-    font-size: 3.7rem;
+    font-size: 2.9rem;
   }
 }
 

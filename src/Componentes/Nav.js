@@ -13,40 +13,16 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 const Nav = () => {
 
   
+  // Hooks
   const location = useLocation();
   const [path,setPath] = useState()
   const [background,setbackground] = useState()
   const [menuActive,setMenuActive] = useState(false)
   const [color,setColor] =  useState()
-  const links_scroll = document.querySelectorAll(`.links ul li a `)
+  const [colorIcon,setColorIcon] = useState({color:"#fff"})
 
 
-  const menuMobile = () => {
-    setMenuActive(!menuActive)
-  }
-
-  const handleScroll = () => {
-
-    if(window.scrollY >=40){
-
-        setbackground({
-        backgroundColor:"#fff",
-        boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)"
-      })
-      setColor({
-        color:"#364753", 
-      }) 
-
-      
-    }
-    else{
-      setColor({
-        color:"#fff", 
-      }) 
-      setbackground({})
-    }
-  }
-
+  //array links
   const arrayLinks = [
     {
       href:"https://aceffong.com.br/",
@@ -83,12 +59,45 @@ const Nav = () => {
     }
   ]
 
+  // functions
+  const menuMobile = () => {
+    setMenuActive(!menuActive)
+  }
+
+
+  const handleScroll = () => {
+
+    if(window.scrollY >=40){
+
+        setbackground({
+        backgroundColor:"#fff",
+        boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)"
+      })
+      setColor({
+        color:"#364753", 
+      }) 
+
+
+      
+    }
+    else{
+      setColor({
+        color:"#fff", 
+      }) 
+      setbackground({})
+    }
+  }
+
+  
+
+  //useffects
+
   useEffect(() => {
     const baseStyle = () => {
       if(path === "/"){
         setbackground({})
        window.addEventListener(("scroll"),handleScroll)
-       setColor({}) 
+       setColor({color:"#fff"})
       }
   
       else{
@@ -122,7 +131,7 @@ const Nav = () => {
 
       <img src={logo} alt="logo da pagina" />
       <button onClick={menuMobile}  id="btnMobile" >
-      <FontAwesomeIcon fontSize="3rem" color="#364753"  icon={faBars} />
+      <FontAwesomeIcon fontSize="3rem" style={color}  icon={faBars} />
       </button>
       <div className="links">
         <button onClick={menuMobile} id="fecharMobile">
@@ -131,7 +140,7 @@ const Nav = () => {
         <ul>
           {arrayLinks.map(({texto,href}) =>(
             <li key={texto}>
-              <a style={color} href={href}>{texto}</a>
+              <a style={menuActive? {color:"#364753"}:color} href={href}>{texto}</a>
             </li>
           ))}
         </ul>
