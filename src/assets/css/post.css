@@ -17,6 +17,8 @@
     cursor: pointer;
     border-radius: 10px;
     border: none;
+    display: flex;
+    justify-content: center;
     font-family: 'open sans';
     font-weight: 500;
     color: #26404F;
@@ -63,9 +65,8 @@
     margin-top: 10px;
 }
 
-.conteudo_post  a {
+.conteudo_post a {
   word-break: break-all;
-  text-align: justify;
 }
 
 .conteudo_post h1{
@@ -81,7 +82,7 @@
   }
 
 .conteudo_post p{
-    font-size:  2rem;
+    font-size:  2.5rem;
   }
 
 .conteudo_post img{

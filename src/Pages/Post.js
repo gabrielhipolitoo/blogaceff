@@ -30,7 +30,7 @@ const Post = () => {
       <button onClick={() => {
         navigate('/')
 
-      }} id={"voltarPagina"}> ⬅ Voltar pagina</button>
+      }} id={"voltarPagina"}>  Voltar pagina</button>
       {posts && 
         <>
           <header className={"header_post"}>
