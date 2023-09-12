@@ -57,28 +57,34 @@
 }
 
 .conteudo_post{
+    max-width: 90%;
     font-size: 2rem;
     color: #26404F;
     margin-top: 10px;
+}
+
+.conteudo_post  a {
+  word-break: break-all;
+  text-align: justify;
 }
 
 .conteudo_post h1{
     font-size:  5rem;
   }
 
-  .conteudo_post h2{
+.conteudo_post h2{
     font-size:  4rem;
   }
 
-  .conteudo_post h3{
+.conteudo_post h3{
     font-size:  3.5rem;
   }
 
-  .conteudo_post p{
-    font-size:  2.5rem;
+.conteudo_post p{
+    font-size:  2rem;
   }
 
-  .conteudo_post img{
+.conteudo_post img{
     max-width: 90%;
   }
 
