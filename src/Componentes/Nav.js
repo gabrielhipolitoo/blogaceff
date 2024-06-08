@@ -26,7 +26,7 @@ const Nav = () => {
   const arrayLinks = [
     {
       href:"https://aceffong.com.br/",
-      texto:"Inicio"
+      texto:"Início"
     },
     {
       href:"https://aceffong.com.br/sobre/",
