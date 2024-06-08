@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import  "../assets/css/nav.css";
-import logo from "../assets/imgs/Logo-aceff.png";
+import logo from "../assets/imgs/logo-aceff.png";
 import { useLocation } from "react-router-dom";
 
 
